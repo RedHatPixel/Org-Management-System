@@ -1,0 +1,47 @@
+.footer {
+	width: 100%;
+	min-height: 200px;
+	background-color: var(--tertiary-color);
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 2rem;
+	padding: 2rem 0 5rem;
+}
+
+.footer-content,
+.footer-sign {
+	padding: 0 5%;
+}
+
+.footer-sign span {
+	font-size: 1.2rem;
+	display: block;
+	margin-bottom: 1rem;
+}
+
+.footer-sign .login {
+	color: #fff;
+	font-size: 1.2rem;
+	font-weight: 700;
+	background-color: var(--secondary-color);
+	padding: 0.4rem 2rem;
+	border-radius: 1rem;
+	margin: 0 0.5rem;
+	transition: all 0.3s ease;
+}
+
+.footer-sign .login:hover {
+	background-color: var(--primary-color);
+}
+
+.footer-sign .signup {
+	color: #fff;
+	font-size: 1.2rem;
+	font-weight: 700;
+	margin: 0 0.5rem;
+	transition: all 0.3s ease;
+}
+
+.footer-sign .signup:hover {
+	color: var(--primary-color);
+}
