@@ -1,0 +1,131 @@
+<link rel="stylesheet" href="css/navbar.css">
+<header class="navbar-container">
+    <a href="../home.php" class="logo">
+        <img src="" alt="LOGO">
+    </a>
+    <nav class="navbar">
+        <i class="material-icons menu-closer">
+            close
+        </i>
+        <ul class="nav-links">
+            <li><a href="../home.php">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="../orgs.php">Orgs</a></li>
+        </ul>
+        <a href="#" class="login-btn">
+            <i class="material-icons">login</i>
+            Log in
+        </a>
+    </nav>
+    <i class="material-icons menu-opener">
+        view_headline
+    </i>
+    <script src="../js/navbar.js"></script>
+</header>
+<style>
+    .navbar-container {
+        width: 100%;
+        position: fixed;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 10%;
+        color: #000000;
+        transition: all 3ms ease-in-out;
+    }
+
+    .navbar-container a,
+    .navbar-container i {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .navbar-container a:hover,
+    .navbar-container i:hover {
+        color: var(--tertiary-color);
+    }
+
+    .scrolled {
+        border-bottom: 2px solid var(--secondary-color);
+        background-color: #ffffff;
+        color: #000000;
+    }
+
+    .logo {
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .navbar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 3rem;
+    }
+
+    .nav-links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .login-btn {
+        display: flex;
+        gap: 0.4rem;
+    }
+
+    .menu-opener {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .menu-closer {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+        .navbar {
+            top: 0;
+            right: -200px;
+            width: 200px;
+            height: 100vh;
+            position: absolute;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            background-color: var(--primary-color-transparent);
+            padding: 2rem;
+            gap: 2rem;
+            overflow: hidden;
+            transition: right 0.3s ease;
+        }
+
+        .navbar.show {
+            right: 0;
+        }
+
+        .nav-links {
+            gap: 1rem;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .menu-opener {
+            display: block;
+        }
+
+        .menu-closer {
+            display: block;
+        }
+    }
+</style>

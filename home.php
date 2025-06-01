@@ -13,7 +13,7 @@
 
 <body>
     <?php
-    include_once 'includes/navbar.php';
+    include_once 'includes/navbar_white.php';
     ?>
     <div class="hero">
         <div class="hero-content">
@@ -118,7 +118,6 @@
     <?php
     include_once 'includes/footer.php';
     ?>
-
 </body>
 
 </html>
