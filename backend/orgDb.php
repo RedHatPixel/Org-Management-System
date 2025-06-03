@@ -5,7 +5,7 @@ include_once __DIR__ . './config/helpers';
 $org_conn = createConnection(
     "localhost",
     "admin",
-    "qweaseq",
+    "Qa.TN3JnAl[-vRdz",
     "cvsunet_org_db"
 );
 

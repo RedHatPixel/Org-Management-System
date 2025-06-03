@@ -29,6 +29,19 @@
                     <div class="course-input">
                         <label for="course">Course</label>
                         <select class="normal-field" id="course" name="course" required>
+                            <?php
+                            include './backend/userDb.php';
+                            $courses = getCourses();
+                            if ($courses) {
+                                echo '<option value="" disabled selected>Select courses</option>';
+                                foreach ($courses as $course) {
+                                    echo '<option value="' . htmlspecialchars($course['course_code']) . '">'
+                                        . htmlspecialchars($course['course_code']) . '</option>';
+                                }
+                            } else {
+                                echo '<option value="" disabled selected>No courses available</option>';
+                            }
+                            ?>
                         </select>
                     </div>
                     <div class="year-input">

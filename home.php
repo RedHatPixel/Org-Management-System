@@ -107,7 +107,7 @@
         <h2>Be Immersed and share your ideas</h2>
         <div class="info-section">
             <div class="info-img">
-                <img src="./assets/Cavite_State_University_(CvSU).png" alt="student dashboard">
+                <img src="./assets/images/Cavite_State_University_(CvSU).png" alt="student dashboard">
             </div>
             <div class="info-content">
                 <h3>Complete Students Interactions and Participation</h3>
