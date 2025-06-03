@@ -8,12 +8,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <title>CVSU Organization Network</title>
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="stylesheet" href="./assets/css/navbar.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
 </head>
 
 <body>
     <?php
-    include_once 'includes/navbar_white.php';
+    include_once 'includes/navbar.php';
     ?>
     <div class="hero">
         <div class="hero-content">
@@ -22,10 +24,10 @@
             <h3>TRECE MARTIRES CITY CAMPUS</h3>
             <h4>Truth • Excellence • Service</h4>
         </div>
-        <img class="hero-img" src="./assets/hero.jpg">
+        <img class="hero-img" src="./assets/images/hero.jpg">
     </div>
 
-    <div class="about">
+    <div class="about" id="about">
         <div class="about-content">
             <h2>CvSU Community</h2>
             <p>
@@ -65,7 +67,7 @@
         </div>
     </div>
 
-    <div class="headline">
+    <div class="headline" id="services">
         <h2>We Offer</h2>
         <div class="slide-container">
             <div class="offers-content slide">

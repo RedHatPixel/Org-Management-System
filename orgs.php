@@ -8,14 +8,22 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <title>CVSU Organization Network | Orgs</title>
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="stylesheet" href="./assets/css/navbar.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
 </head>
 
 <body>
     <?php
-    include_once './includes/navbar_black.php';
+    $AsBlack = true;
+    include_once 'includes/navbar.php';
     ?>
 
+
+
+    <?php
+    include_once 'includes/footer.php';
+    ?>
 </body>
 
 </html>

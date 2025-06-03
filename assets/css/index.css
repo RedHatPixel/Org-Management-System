@@ -325,13 +325,46 @@ a {
 	}
 }
 
-/* -------------- LOGIN AND SIGN UP ----------- */
+/* -------------- LOGIN AND SIGN UP OVERALL DESIGN ----------- */
 .center-page {
 	width: 100%;
 	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.outline-container {
+	position: relative;
+	padding: 1rem 1rem 2rem;
+	margin: 5%;
+	border: 4px solid var(--tertiary-color);
+	border-radius: 1rem;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.outline-container h1 {
+	color: var(--primary-color);
+	align-self: flex-start;
+}
+
+.form-pr {
+	width: 100%;
+	padding: 2rem 0;
+}
+
+.form-pr {
+	width: 100%;
+	height: 100%;
+}
+
+.form-pr p {
+	font-size: 0.9rem;
+	text-align: center;
+	margin-top: 1rem;
 }
 
 .top-link {
@@ -382,15 +415,13 @@ a {
 	user-select: none;
 }
 
-.email-icon,
-.password-icon,
-.phone-icon {
+.left-icon {
 	left: 10px;
 	top: 50%;
 	transform: translateY(-50%);
 }
 
-.visibility-icon {
+.right-icon {
 	right: 10px;
 	top: 50%;
 	transform: translateY(-50%);
@@ -415,34 +446,13 @@ a {
 
 /* ----------------- LOGIN PAGE --------------- */
 .login-container {
-	position: relative;
 	width: 600px;
 	min-width: 250px;
-	padding: 1rem 1rem 2rem;
-	margin: 5%;
-	border: 4px solid var(--tertiary-color);
-	border-radius: 1rem;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.login-container h1 {
-	color: var(--primary-color);
-	align-self: flex-start;
 }
 
 .login-form {
-	width: 100%;
 	max-width: 400px;
 	min-height: 340px;
-	padding: 2rem 0;
-}
-
-.login-form form {
-	width: 100%;
-	height: 100%;
 }
 
 .login-form .input-field {
@@ -462,48 +472,15 @@ a {
 	text-align: right;
 }
 
-.login-form p {
-	font-size: 0.9rem;
-	text-align: center;
-	margin-top: 1rem;
-}
-
 /* ----------------- SIGN UP PAGE --------------- */
 .signup-container {
-	position: relative;
 	width: 900px;
 	min-width: 250px;
-	padding: 1rem 1rem 2rem;
-	margin: 5%;
-	border: 4px solid var(--tertiary-color);
-	border-radius: 1rem;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.signup-container h1 {
-	color: var(--primary-color);
-	align-self: flex-start;
 }
 
 .signup-form {
-	width: 100%;
 	max-width: 650px;
 	min-height: 500px;
-	padding: 2rem 0;
-}
-
-.signup-form p {
-	font-size: 0.9rem;
-	text-align: center;
-	margin-top: 1rem;
-}
-
-.signup-form form {
-	width: 100%;
-	height: 100%;
 }
 
 .signup-form hr {

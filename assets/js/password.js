@@ -2,7 +2,7 @@ const toggleIcons = document.querySelectorAll(".toggle-password");
 
 toggleIcons.forEach((icon) => {
 	icon.addEventListener("click", () => {
-		const passwordInput = icon.previousElementSibling; // assumes input is right before icon
+		const passwordInput = icon.previousElementSibling;
 
 		console.log("Toggling password visibility for:", passwordInput);
 
