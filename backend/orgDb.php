@@ -1,6 +1,6 @@
 <?php
-include_once __DIR__ . './config/connector';
-include_once __DIR__ . './config/helpers';
+include_once __DIR__ . '/config/connector.php';
+include_once __DIR__ . '/config/helpers.php';
 
 $org_conn = createConnection(
     "localhost",
@@ -10,5 +10,6 @@ $org_conn = createConnection(
 );
 
 if (!$org_conn) {
-    die("Connection Failed to org data.");
+    redirect('./maintenance.html');
+    exit;
 }

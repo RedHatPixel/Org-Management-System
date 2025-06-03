@@ -10,7 +10,13 @@ $user_conn = createConnection(
 );
 
 if (!$user_conn) {
-    die("Connection Failed to user data.");
+    redirect('./maintenance.html');
+    exit;
+}
+
+function createAccount()
+{
+    global $user_conn;
 }
 
 function getCourses()
@@ -20,6 +26,7 @@ function getCourses()
     $result = $user_conn->query($query);
     if (!$result) {
         error_log("Query Failed: " . $user_conn->error);
+        return [];
     }
 
     $courses = [];

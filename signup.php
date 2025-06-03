@@ -1,3 +1,97 @@
+<?php
+include './backend/userDb.php';
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    // Collect and sanitize input data
+    $last_name = validate($_POST['last_name'], $user_conn);
+    $first_name = validate($_POST['first_name'], $user_conn);
+    $middle_name = validate($_POST['middle-name'], $user_conn);
+    $course = $_POST['course'];
+    $year = $_POST['year'];
+    $section = $_POST['section'];
+    $student_id = validate($_POST['student-id'], $user_conn);
+    $cvsu_email = validate($_POST['cvsu-email'], $user_conn);
+    $personal_email = validate($_POST['optional-email'], $user_conn) ?: null;
+    $contact = validate($_POST['contact'], $user_conn) ?: null;
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm-password'];
+
+    // Validate trust
+    if (!isset($_POST['trust'])) {
+        redirect(
+            "signup.php",
+            "<div class='error'>
+                <span> You must agree to trust this website with your personal information. </span>
+            </div>"
+        );
+    }
+
+    // Validate cvsu email
+    if (!isCvsuEmail($cvsu_email)) {
+        redirect(
+            "signup.php",
+            "<div class='error'>
+                <span> The email is not a cvsu account. </span>
+            </div>"
+        );
+    }
+
+    // Validate passwords
+    if ($password !== $confirm_password) {
+        redirect(
+            "signup.php",
+            "<div class='error'>
+                <span> Password did not match. </span>
+            </div>"
+        );
+    }
+
+    $full_name = getFullName($last_name, $first_name, $middle_name);
+
+    // Hash the password
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+    // Prepare the SQL insert statement
+    $stmt = $user_conn->prepare("CALL createStudentAccount(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+    if (!$stmt) {
+        redirect(
+            "signup.php",
+            "<div class='error'>
+                <span> Prepare failed: $conn->error </span>
+            </div>"
+        );
+    }
+
+    $stmt->bind_param(
+        "sssssssii",
+        $cvsu_email,
+        $personal_email,
+        $hashed_password,
+        $student_id,
+        $full_name,
+        $contact,
+        $course,
+        $year,
+        $section,
+    );
+
+    if ($stmt->execute()) {
+        redirect("./login.php", "Account created successfully!");
+    } else {
+        redirect(
+            "signup.php",
+            "<div class='error'>
+                <span> An error occured was creating your account. </span>
+            </div>"
+        );
+    }
+
+    $stmt->close();
+    closeConnection($user_conn);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +124,6 @@
                         <label for="course">Course</label>
                         <select class="normal-field" id="course" name="course" required>
                             <?php
-                            include './backend/userDb.php';
                             $courses = getCourses();
                             if ($courses) {
                                 echo '<option value="" disabled selected>Select courses</option>';
@@ -101,6 +194,7 @@
                     <input type="checkbox" id="trust" name="trust" required>
                     <label for="trust">Do you trust this website with your personal information?</label>
                 </div>
+                <?php alertMessage(); ?>
                 <button type="submit" class="main-btn">Sign up</button>
             </form>
             <p>Already have an account? <a class="link-btn" href="./login.php">Log in</a></p>
