@@ -13,10 +13,10 @@
 
 <body class="center-page">
 
-    <div class="outline-container">
+    <div class="outline-container recover-container">
         <a class="top-link" href="./home.php">Home</a>
         <h1>Forgot Password</h1>
-        <div class="form-pr">
+        <div class="form-pr recover-form">
             <form action="recover-password.php" method="post">
                 <label for="email">Email</label>
                 <div class="input-field">
@@ -25,7 +25,7 @@
                 </div>
                 <button type="submit" class="main-btn">Reset My Password</button>
             </form>
-            <p></p>
+            <p>Insert your email and press the button then wait for your mail with authentication code.</p>
         </div>
     </div>
 

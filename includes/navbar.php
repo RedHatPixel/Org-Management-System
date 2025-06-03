@@ -1,4 +1,4 @@
-<header class="navbar-container">
+<header class="navbar-container <?php echo isset($AsBlack) && $AsBlack === true ? 'startup-black' : 'startup-white'; ?>">
     <a href="./home.php" class="logo">
         <img src="" alt="LOGO">
     </a>

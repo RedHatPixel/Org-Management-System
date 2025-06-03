@@ -8,6 +8,7 @@
 	--accent-color: #dab641;
 	--gray-color: #cccccc;
 	--link-color: #6fb5d1;
+	--star-color: #fbff00;
 
 	--font-family: "Poppins", sans-serif;
 	--primary-color-transparent: #227b18da;
@@ -335,6 +336,7 @@ a {
 }
 
 .outline-container {
+	min-width: 250px;
 	position: relative;
 	padding: 1rem 1rem 2rem;
 	margin: 5%;
@@ -447,7 +449,6 @@ a {
 /* ----------------- LOGIN PAGE --------------- */
 .login-container {
 	width: 600px;
-	min-width: 250px;
 }
 
 .login-form {
@@ -475,7 +476,6 @@ a {
 /* ----------------- SIGN UP PAGE --------------- */
 .signup-container {
 	width: 900px;
-	min-width: 250px;
 }
 
 .signup-form {
@@ -521,4 +521,124 @@ a {
 .signup-form .trust-field {
 	text-align: center;
 	margin: 1rem 0;
+}
+
+/* ------------- RECOVER PASSWORD ------------ */
+.recover-container {
+	width: 520px;
+}
+
+.recover-form {
+	max-width: 320px;
+	min-height: 220px;
+}
+
+.recover-form .input-field {
+	margin: 0.2rem 0 1rem;
+}
+
+/* ------------ ORG PAGE --------------- */
+.organizations {
+	width: 100%;
+	min-height: 80vh;
+	padding: 0 5%;
+}
+
+.organizations h1 {
+	font-size: 2rem;
+	color: var(--primary-color);
+	padding: 150px 0 0.5rem;
+}
+
+.org-container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 3rem;
+	padding: 3rem 0;
+}
+
+.org-main-card {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 2rem;
+}
+
+/* org-left-info */
+
+.org-main-header {
+	display: flex;
+	align-content: center;
+	gap: 0.4rem;
+}
+
+.org-main-img {
+	font-size: 2.4rem;
+	width: 2.4rem;
+	height: 2.4rem;
+	object-fit: cover;
+	border-radius: 100%;
+}
+
+.org-main-title {
+	font-weight: 700;
+	font-size: 1.5rem;
+}
+
+.org-main-desc p {
+	padding-left: 2rem;
+	text-align: justify;
+	margin: 1rem 0;
+}
+
+.org-main-accounts {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.accounts-joined .account {
+	font-size: 2rem;
+	width: 2rem;
+	height: 2rem;
+	object-fit: cover;
+	border-radius: 100%;
+}
+
+/* org-right-info */
+
+.org-right-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.org-right-info a {
+	width: 100%;
+	border: 4px solid var(--tertiary-color);
+	background-color: var(--secondary-color);
+	color: #fff;
+	border-radius: 0.5rem;
+	padding: 0.7rem;
+	text-align: center;
+	font-weight: 700;
+}
+
+.org-rating .star {
+	font-size: 2rem;
+	color: var(--star-color);
+}
+
+@media (max-width: 680px) {
+	.org-main-card {
+		grid-template-columns: 1fr;
+	}
+
+	.org-right-info {
+		align-items: center;
+	}
 }
