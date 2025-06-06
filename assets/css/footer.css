@@ -19,7 +19,8 @@
 	margin-bottom: 1rem;
 }
 
-.footer-sign .login {
+.footer-sign .login,
+.footer-sign .dashboard-link {
 	color: #fff;
 	font-size: 1.2rem;
 	font-weight: 700;
@@ -30,11 +31,13 @@
 	transition: all 0.3s ease;
 }
 
-.footer-sign .login:hover {
+.footer-sign .login:hover,
+.footer-sign .dashboard-link {
 	background-color: var(--primary-color);
 }
 
-.footer-sign .signup {
+.footer-sign .signup,
+.footer-sign .logout {
 	color: #fff;
 	font-size: 1.2rem;
 	font-weight: 700;
@@ -42,6 +45,7 @@
 	transition: all 0.3s ease;
 }
 
-.footer-sign .signup:hover {
+.footer-sign .signup:hover,
+.footer-sign .logout:hover {
 	color: var(--primary-color);
 }

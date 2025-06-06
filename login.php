@@ -1,7 +1,10 @@
 <?php
 include_once './backend/userDb.php';
-include_once './backend/auth/loginAuth.php';
+include_once './backend/middleware/loginAuth.php';
 include_once './backend/tools/tokenProvider.php';
+
+redirectIfLoggedIn('home.php');
+autoLogin('home.php');
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $cvsu_email = validate($_POST['email'], $user_conn);
@@ -23,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($remember) {
             $cookie_value = createToken($user_id);
-            setcookie('remember_token', $cookie_value, time() + (86400 * 30), '/', '', true, true); // Secure, HttpOnly
+            createCookie('remember_token', $cookie_value, 30);
         }
 
         redirect('home.php');
@@ -51,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <a class="top-link" href="./home.php">Home</a>
         <h1>Log in</h1>
         <div class="form-pr login-form">
-            <form action="login.php" method="post">
+            <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
                 <label for="email">CVSU Email</label>
                 <div class="input-field">
                     <label for="email"><i class="material-icons left-icon">mail</i></label>

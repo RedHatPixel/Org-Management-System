@@ -2,6 +2,15 @@
 session_start();
 
 /**
+ * Stop and delete all working session
+ */
+function deleteAllSession()
+{
+    session_unset();
+    session_destroy();
+}
+
+/**
  * Sanitize input using the active `$conn` connection
  */
 function validate($input, $conn)
@@ -46,4 +55,13 @@ function result($message = '', $status = null, $data = null)
         'status' => $status,
         'data' => $data
     ];
+}
+
+/**
+ * Create a specified cookies with time control
+ */
+function createCookie($name, $value, $days = 0, $hours = 0)
+{
+    $expiration = time() + ($days * 86400) + ($hours * 3600); // 86400 = 1 day, 3600 = 1 hour
+    setcookie($name, $value, $expiration, '/', '', true, true); // Secure, HttpOnly
 }

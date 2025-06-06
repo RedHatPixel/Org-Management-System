@@ -58,18 +58,29 @@
 	gap: 0.4rem;
 }
 
-.menu-opener {
+.menu-opener,
+.menu-closer {
+	font-size: 2rem !important;
 	display: none;
-	font-size: 2rem;
 	cursor: pointer;
 	user-select: none;
 }
 
-.menu-closer {
-	display: none;
-	font-size: 2rem;
-	cursor: pointer;
-	user-select: none;
+.user-selection {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.6rem;
+	gap: 0.4rem;
+}
+
+.side-nav {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.hidden {
+	display: none !important;
 }
 
 /* Mobile styles */

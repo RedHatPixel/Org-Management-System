@@ -12,13 +12,29 @@
             <li><a href="./home.php#services">Services</a></li>
             <li><a href="./orgs.php">Orgs</a></li>
         </ul>
-        <a href="./login.php" class="login-btn">
-            <i class="material-icons">login</i>
-            Log in
-        </a>
+        <div class="guest-selection <?php if (isset($_SESSION['user'])) echo "hidden" ?>">
+            <a href="./login.php" class="login-btn">
+                <i class="material-icons">login</i>
+                Log in
+            </a>
+        </div>
     </nav>
-    <i class="material-icons menu-opener">
-        view_headline
-    </i>
+
+    <div class="side-nav">
+        <span class="user-selection <?php if (!isset($_SESSION['user'])) echo "hidden" ?>">
+            <a href="./client/dashboard/home.php">
+                <i class="material-icons">person</i>
+            </a>
+            <a href="./backend/middleware/logout.php">
+                <i class="material-icons">logout</i>
+            </a>
+        </span>
+
+        <i class="material-icons menu-opener">
+            view_headline
+        </i>
+    </div>
+
+
     <script src="./assets/js/navbar.js"></script>
 </header>

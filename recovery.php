@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <title>Log in</title>
+    <title>Log in | Recover Password</title>
     <link rel="stylesheet" href="./assets/css/index.css">
 </head>
 

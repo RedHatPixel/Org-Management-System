@@ -1,7 +1,10 @@
 <?php
 include './backend/userDb.php';
-include './backend/auth/validator.php';
+include './backend/middleware/validator.php';
 include './backend/tools/stringProvider.php';
+
+redirectIfLoggedIn('home.php');
+autoLogin('home.php');
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -23,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Validate both passwords
     if ($password !== $confirm_password) {
         redirect(
-            "signup.php",
-            "<div class='modal error'>
+            "signup.php#error",
+            "<div class='modal error' id='error'>
                 <span> Password did not match. </span>
             </div>"
         );
@@ -33,8 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Validate strong password
     if (!isPasswordStrong($password)) {
         redirect(
-            "signup.php",
-            "<div class='modal error'>
+            "signup.php#error",
+            "<div class='modal error' id='error'>
                 <span> Password is not strong enough. </span>
             </div>"
         );
@@ -62,8 +65,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         );
     } else if ($result['status'] === 'error') {
         redirect(
-            "signup.php",
-            "<div class='modal error'>
+            "signup.php#error",
+            "<div class='modal error' id='error'>
                 <span>" . $result['message'] . "</span>
             </div>"
         );
@@ -89,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <a class="top-link" href="./home.php">Home</a>
         <h1>Sign up</h1>
         <div class="form-pr signup-form">
-            <form action="signup.php" method="post">
+            <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
                 <label>Full Name</label>
                 <div class="fullname-field">
                     <input class="normal-field" type="text" id="last-name" name="last_name" placeholder="Last Name" required>

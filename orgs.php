@@ -1,3 +1,8 @@
+<?php
+include_once './backend/middleware/loginAuth.php';
+autoLogin($_SERVER['PHP_SELF']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +14,7 @@
 
     <title>CVSU Organization Network | Orgs</title>
     <link rel="stylesheet" href="./assets/css/index.css">
-    <link rel="stylesheet" href="./assets/css/nav.css">
+    <link rel="stylesheet" href="./assets/css/navbar.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
 </head>
 
