@@ -12,7 +12,7 @@ function validate($input, $conn)
 /**
  * Redirect with optional session status message
  */
-function redirect($url, $status = null)
+function redirect($url = './', $status = null)
 {
     $_SESSION['status'] = $status;
     header("Location: $url");
@@ -30,30 +30,20 @@ function alertMessage()
     }
 }
 
-function isCvsuEmail($email)
+/**
+ * Create a structured result array for feedback
+ * 
+ * @param string $message       The message to return
+ * @param string|null $status   Optional status type ('success', 'error', etc.)
+ * @param mixed $data           The data the user want to send
+ * 
+ * @return array
+ */
+function result($message = '', $status = null, $data = null)
 {
-    return preg_match('/^[a-z0-9._%+-]+@cvsu\.edu\.ph$/i', $email);
-}
-
-function getFullName($lastName, $firstName, $middleName)
-{
-    return trim("$lastName, $firstName $middleName");
-}
-
-function splitFullName($fullName)
-{
-    // Expecting format: "Last, First Middle"
-    $parts = explode(',', $fullName);
-
-    if (count($parts) < 2) {
-        return [null, null, null];
-    }
-
-    $lastName = trim($parts[0]);
-    $firstMiddle = preg_split('/\s+/', trim($parts[1]), 2);
-
-    $firstName = $firstMiddle[0] ?? null;
-    $middleName = $firstMiddle[1] ?? null;
-
-    return [$lastName, $firstName, $middleName];
+    return [
+        'message' => $message,
+        'status' => $status,
+        'data' => $data
+    ];
 }

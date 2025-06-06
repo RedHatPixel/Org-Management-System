@@ -1,5 +1,7 @@
 <?php
 include './backend/userDb.php';
+include './backend/auth/validator.php';
+include './backend/tools/stringProvider.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -7,6 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $last_name = validate($_POST['last_name'], $user_conn);
     $first_name = validate($_POST['first_name'], $user_conn);
     $middle_name = validate($_POST['middle-name'], $user_conn);
+    $full_name = getFullName($last_name, $first_name, $middle_name);
     $course = $_POST['course'];
     $year = $_POST['year'];
     $section = $_POST['section'];
@@ -17,58 +20,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm-password'];
 
-    // Validate trust
-    if (!isset($_POST['trust'])) {
-        redirect(
-            "signup.php",
-            "<div class='error'>
-                <span> You must agree to trust this website with your personal information. </span>
-            </div>"
-        );
-    }
-
-    // Validate cvsu email
-    if (!isCvsuEmail($cvsu_email)) {
-        redirect(
-            "signup.php",
-            "<div class='error'>
-                <span> The email is not a cvsu account. </span>
-            </div>"
-        );
-    }
-
-    // Validate passwords
+    // Validate both passwords
     if ($password !== $confirm_password) {
         redirect(
             "signup.php",
-            "<div class='error'>
+            "<div class='modal error'>
                 <span> Password did not match. </span>
             </div>"
         );
     }
 
-    $full_name = getFullName($last_name, $first_name, $middle_name);
-
-    // Hash the password
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-    // Prepare the SQL insert statement
-    $stmt = $user_conn->prepare("CALL createStudentAccount(?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
-    if (!$stmt) {
+    // Validate strong password
+    if (!isPasswordStrong($password)) {
         redirect(
             "signup.php",
-            "<div class='error'>
-                <span> Prepare failed: $conn->error </span>
+            "<div class='modal error'>
+                <span> Password is not strong enough. </span>
             </div>"
         );
     }
 
-    $stmt->bind_param(
-        "sssssssii",
+    // Query creating account
+    $result = createAccount(
         $cvsu_email,
         $personal_email,
-        $hashed_password,
+        $password,
         $student_id,
         $full_name,
         $contact,
@@ -77,19 +53,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $section,
     );
 
-    if ($stmt->execute()) {
-        redirect("./login.php", "Account created successfully!");
-    } else {
+    if ($result['status'] === 'success') {
+        redirect(
+            "./login.php",
+            "<div class='popup modal success'>
+                <span>" . $result['message'] . "</span>
+            </div>"
+        );
+    } else if ($result['status'] === 'error') {
         redirect(
             "signup.php",
-            "<div class='error'>
-                <span> An error occured was creating your account. </span>
+            "<div class='modal error'>
+                <span>" . $result['message'] . "</span>
             </div>"
         );
     }
-
-    $stmt->close();
-    closeConnection($user_conn);
 }
 ?>
 <!DOCTYPE html>

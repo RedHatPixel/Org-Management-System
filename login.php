@@ -1,3 +1,35 @@
+<?php
+include_once './backend/userDb.php';
+include_once './backend/auth/loginAuth.php';
+include_once './backend/tools/tokenProvider.php';
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $cvsu_email = validate($_POST['email'], $user_conn);
+    $password = $_POST['password'];
+    $remember = isset($_POST['remember']);
+
+    $result = loginAccount($cvsu_email, $password);
+
+    if ($result['status'] === 'error') {
+        redirect(
+            "login.php",
+            "<div class='popup modal error'>
+                <span>" . $result['message'] . "</span>
+            </div>"
+        );
+    } else if ($result['status'] === 'success') {
+        $user_id = $result['data'];
+        $_SESSION['user'] = $user_id;
+
+        if ($remember) {
+            $cookie_value = createToken($user_id);
+            setcookie('remember_token', $cookie_value, time() + (86400 * 30), '/', '', true, true); // Secure, HttpOnly
+        }
+
+        redirect('home.php');
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,15 +45,17 @@
 
 <body class="center-page">
 
+    <?php alertMessage(); ?>
+
     <div class="outline-container login-container">
         <a class="top-link" href="./home.php">Home</a>
         <h1>Log in</h1>
         <div class="form-pr login-form">
             <form action="login.php" method="post">
-                <label for="email">Email</label>
+                <label for="email">CVSU Email</label>
                 <div class="input-field">
                     <label for="email"><i class="material-icons left-icon">mail</i></label>
-                    <input type="text" id="email" name="email" placeholder="Enter your cvsu email" required>
+                    <input type="text" id="email" name="email" placeholder="example@cvsu.edu.ph" required>
                 </div>
                 <label for="password">Password</label>
                 <div class="input-field">
@@ -35,7 +69,7 @@
                 </div>
                 <button type="submit" class="main-btn">Log in</button>
                 <div class="forgot-password">
-                    <a class="link-btn" href="./recover-password.php">Forgot Password?</a>
+                    <a class="link-btn" href="./recovery.php">Forgot Password?</a>
                 </div>
             </form>
             <p>Don't have an account? <a class="link-btn" href="./signup.php">Sign up</a></p>
