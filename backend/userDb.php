@@ -110,6 +110,32 @@ function loginAccount($cvsu_email, $password)
     }
 }
 
+function getUserAccount($user_id)
+{
+    global $user_conn;
+
+    try {
+        // Use a prepared statement to prevent SQL injection
+        $stmt = $user_conn->prepare("SELECT * FROM user_profile WHERE user_id = ?");
+        if (!$stmt) {
+            throw new Exception("Prepare failed: " . $user_conn->error);
+        }
+
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if (!$result || $result->num_rows === 0) {
+            throw new Exception("No user found.");
+        }
+
+        $user = $result->fetch_assoc();
+        return result("Account was given.", 'success', $user);
+    } catch (mysqli_sql_exception | Exception $e) {
+        return result($e->getMessage(), 'error');
+    }
+}
+
 function getCourses()
 {
     global $user_conn;
@@ -118,13 +144,11 @@ function getCourses()
         $query = "SELECT * FROM courses ORDER BY courses.course_code ASC";
         $result = $user_conn->query($query);
         if (!$result) {
-            error_log("Query Failed: " . $user_conn->error);
-            return [];
+            throw new Exception("Query Failed: " . $user_conn->error);
         }
 
-        return $result->fetch_all(MYSQLI_ASSOC);
-    } catch (mysqli_sql_exception $e) {
-        error_log("Query Failed: " . $user_conn->error);
-        return [];
+        return result("Courses was given.", 'success', $result->fetch_all(MYSQLI_ASSOC));
+    } catch (mysqli_sql_exception | Exception $e) {
+        return result($e->getMessage(), 'error');
     }
 }

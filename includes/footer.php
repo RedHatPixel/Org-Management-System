@@ -1,6 +1,6 @@
 <div class="footer">
     <div class="footer-content">
-        <a href="./home.php" class="logo">
+        <a href="./index.php" class="logo">
             <img src="" alt="LOGO">
         </a>
         <p>Empowering student communities,</p>

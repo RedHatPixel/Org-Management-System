@@ -1,6 +1,6 @@
 <?php
 include_once './backend/middleware/loginAuth.php';
-autoLogin($_SERVER['PHP_SELF']);
+autoLogin($_SERVER['PHP_SELF'], 'index.php');
 ?>
 
 <!DOCTYPE html>

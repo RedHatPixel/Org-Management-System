@@ -1,11 +1,11 @@
 <section class="sidebar" id="sidebar">
     <div class="sidebar-header">
-        <i class="material-icons" id="toggle-btn">view_headline</i>
+        <i class="material-icons toggle-btn">view_headline</i>
     </div>
 
     <div class="sidebar-content">
         <div class="sidebar-nav">
-            <a href="../../home.php" class="nav-link">
+            <a href="../../index.php" class="nav-link">
                 <i class="material-icons">home</i>
                 <span>Home</span>
             </a>
@@ -13,15 +13,15 @@
                 <i class="material-icons">groups</i>
                 <span>Orgs</span>
             </a>
-            <a href="" class="nav-link">
+            <a href="./event.php" class="nav-link">
                 <i class="material-icons">calendar_month</i>
-                <span>Calendar</span>
+                <span>Event</span>
             </a>
-            <a href="" class="nav-link">
+            <a href="./chat.php" class="nav-link">
                 <i class="material-icons">chat</i>
-                <span>Chats</span>
+                <span>Chat</span>
             </a>
-            <a href="" class="nav-link">
+            <a href="./setting.php" class="nav-link">
                 <i class="material-icons">settings</i>
                 <span>Settings</span>
             </a>
@@ -35,6 +35,5 @@
 
         </div>
 
-        <script src="../../assets/js/modeToggler.js"></script>
         <script src="../../assets/js/sidebar.js"></script>
 </section>

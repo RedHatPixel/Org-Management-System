@@ -1,10 +1,12 @@
 <?php
 include './backend/userDb.php';
 include './backend/middleware/validator.php';
+include './backend/middleware/loginAuth.php';
 include './backend/tools/stringProvider.php';
 
-redirectIfLoggedIn('home.php');
-autoLogin('home.php');
+autoLogin('index.php');
+redirectIfLoggedIn('index.php');
+
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -105,9 +107,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <label for="course">Course</label>
                         <select class="normal-field" id="course" name="course" required>
                             <?php
-                            $courses = getCourses();
-                            if ($courses) {
+                            $response = getCourses();
+                            if ($response['status'] === 'success') {
                                 echo '<option value="" disabled selected>Select courses</option>';
+                                $courses = $response['data'];
                                 foreach ($courses as $course) {
                                     echo '<option value="' . htmlspecialchars($course['course_code']) . '">'
                                         . htmlspecialchars($course['course_code']) . '</option>';

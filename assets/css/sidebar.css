@@ -1,12 +1,12 @@
 .sidebar {
 	position: relative;
-	width: 250px;
+	width: 200px;
 	height: 90vh;
 	display: flex;
 	flex-direction: column;
 	border-right: 2px solid var(--gray-color);
 	overflow: hidden;
-	transition: width 0.3s ease;
+	transition: width 0.2s ease-in-out;
 }
 
 .sidebar.cropped {
@@ -21,7 +21,7 @@
 	padding: 0.75rem 0.9rem;
 }
 
-#toggle-btn {
+.toggle-btn {
 	font-size: 2rem;
 	text-align: end;
 	cursor: pointer;
@@ -68,4 +68,14 @@
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
+}
+
+@media (max-width: 700px) {
+	.sidebar-header {
+		display: none;
+	}
+
+	.sidebar.cropped {
+		width: 0;
+	}
 }

@@ -1,5 +1,5 @@
 <header class="navbar-container <?php echo isset($AsBlack) && $AsBlack === true ? 'startup-black' : 'startup-white'; ?>">
-    <a href="./home.php" class="logo">
+    <a href="./index.php" class="logo">
         <img src="" alt="LOGO">
     </a>
     <nav class="navbar">
@@ -7,9 +7,9 @@
             close
         </i>
         <ul class="nav-links">
-            <li><a href="./home.php">Home</a></li>
-            <li><a href="./home.php#about">About</a></li>
-            <li><a href="./home.php#services">Services</a></li>
+            <li><a href="./index.php">Home</a></li>
+            <li><a href="./index.php#about">About</a></li>
+            <li><a href="./index.php#services">Services</a></li>
             <li><a href="./orgs.php">Orgs</a></li>
         </ul>
         <div class="guest-selection <?php if (isset($_SESSION['user'])) echo "hidden" ?>">

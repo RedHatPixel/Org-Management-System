@@ -14,7 +14,7 @@ autoLogin($_SERVER['PHP_SELF'], "../../index.php");
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-        <title>Dashboard | Home</title>
+        <title>Dashboard | Event</title>
         <link rel="stylesheet" href="../../assets/css/index.css">
         <link rel="stylesheet" href="../../assets/css/sidebar.css">
         <link rel="stylesheet" href="../../assets/css/topnav.css">

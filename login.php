@@ -3,8 +3,8 @@ include_once './backend/userDb.php';
 include_once './backend/middleware/loginAuth.php';
 include_once './backend/tools/tokenProvider.php';
 
-redirectIfLoggedIn('home.php');
-autoLogin('home.php');
+autoLogin('index.php');
+redirectIfLoggedIn('index.php');
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $cvsu_email = validate($_POST['email'], $user_conn);
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             createCookie('remember_token', $cookie_value, 30);
         }
 
-        redirect('home.php');
+        redirect('index.php');
     }
 }
 ?>
