@@ -70,6 +70,7 @@ autoLogin($_SERVER['PHP_SELF'], "../../index.php");
                             <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
                         </ul>
                     </details>
+
                 </div>
 
                 <div class="main-content">
@@ -77,15 +78,44 @@ autoLogin($_SERVER['PHP_SELF'], "../../index.php");
                     <div class="post-container">
                         <div class="post">
                             <div class="post-header">
-                                <img src="../../assets//images/Cavite_State_University_(CvSU).png" alt="org profile" class="org-profile">
-                                <span class="org-title">SAMPLE</span>
+                                <img src="../../assets//images/Cavite_State_University_(CvSU).png" alt="org profile" class="post-org-profile">
+                                <span class="post-org-title">SAMPLE</span>
                             </div>
-                            <div class="post-desc">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, illum. Reprehenderit esse totam, nemo ea doloribus natus ducimus quasi? Odio reprehenderit voluptate magni veniam ducimus perspiciatis modi, illum quia. Expedita.</p>
-                                <span>read more.</span>
+                            <div class="post-desc-container">
+                                <div class="post-desc">
+                                    <pre>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, illum. Reprehenderit esse totam, nemo ea doloribus natus ducimus quasi? Odio reprehenderit voluptate magni veniam ducimus perspiciatis modi, illum quia. Expedita.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, illum. Reprehenderit esse totam, nemo ea doloribus natus ducimus quasi? Odio reprehenderit voluptate magni veniam ducimus perspiciatis modi, illum quia. Expedita.
+                                    </pre>
+                                </div>
+                                <span>read more...</span>
                             </div>
                             <div class="post-content">
-                                <img src="../../assets//images/hero.jpg" alt="post" class="post">
+                                <img src="../../assets//images/hero.jpg" alt="post">
+                                <img src="../../assets//images/hero.jpg" alt="post">
+                                <img src="../../assets//images/hero.jpg" alt="post">
+                                <img src="../../assets//images/hero.jpg" alt="post">
+                            </div>
+                            <div class="post-user-selection">
+                                <button class="post-like">Like</button>
+                                <button class="post-comment">Comment</button>
+                            </div>
+                        </div>
+                        <div class="post">
+                            <div class="post-header">
+                                <img src="../../assets//images/Cavite_State_University_(CvSU).png" alt="org profile" class="post-org-profile">
+                                <span class="post-org-title">SAMPLE</span>
+                            </div>
+                            <div class="post-desc-container">
+                                <div class="post-desc">
+                                    <pre>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, illum. Reprehenderit esse totam, nemo ea doloribus natus ducimus quasi? Odio reprehenderit voluptate magni veniam ducimus perspiciatis modi, illum quia. Expedita.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, illum. Reprehenderit esse totam, nemo ea doloribus natus ducimus quasi? Odio reprehenderit voluptate magni veniam ducimus perspiciatis modi, illum quia. Expedita.
+                                    </pre>
+                                </div>
+                                <span>read more...</span>
+                            </div>
+                            <div class="post-content">
+                                <img src="../../assets//images/hero.jpg" alt="post">
+                                <img src="../../assets//images/hero.jpg" alt="post">
+                                <img src="../../assets//images/hero.jpg" alt="post">
+                                <img src="../../assets//images/hero.jpg" alt="post">
                             </div>
                             <div class="post-user-selection">
                                 <button class="post-like">Like</button>
@@ -93,13 +123,24 @@ autoLogin($_SERVER['PHP_SELF'], "../../index.php");
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="right-content">
-                    <h3>Recommended</h3>
-
-                </div>d
+                    <h3>Active</h3>
+                    <ul class="member-accounts">
+                        <li>Example, Sample A.</li>
+                        <li>Example, Sample A.</li>
+                        <li>Example, Sample A.</li>
+                        <li>Example, Sample A.</li>
+                    </ul>
+                    <h3>Inactive</h3>
+                    <ul class="member-accounts">
+                        <li>Example, Sample A.</li>
+                        <li>Example, Sample A.</li>
+                        <li>Example, Sample A.</li>
+                        <li>Example, Sample A.</li>
+                    </ul>
+                </div>
             </div>
         </main>
     </div>

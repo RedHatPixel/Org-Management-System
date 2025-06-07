@@ -10,7 +10,7 @@ $user_conn = createConnection(
 );
 
 if (!$user_conn) {
-    redirect('./maintenance.html');
+    redirect('/CvSUOrganizationNetwork/maintenance.html');
     exit;
 }
 
@@ -133,6 +133,23 @@ function getUserAccount($user_id)
 
         $user = $result->fetch_assoc();
         return result("Account was given.", 'success', $user);
+    } catch (mysqli_sql_exception | Exception $e) {
+        return result($e->getMessage(), 'error');
+    }
+}
+
+function getUsersActiveStatus()
+{
+    global $user_conn;
+
+    try {
+        $query = "SELECT * FROM users_active_status";
+        $result = $user_conn->query($query);
+        if (!$result) {
+            throw new Exception("Query Failed: " . $user_conn->error);
+        }
+
+        return result("Courses was given.", 'success', $result->fetch_all(MYSQLI_ASSOC));
     } catch (mysqli_sql_exception | Exception $e) {
         return result($e->getMessage(), 'error');
     }

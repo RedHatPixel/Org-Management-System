@@ -10,6 +10,6 @@ $org_conn = createConnection(
 );
 
 if (!$org_conn) {
-    redirect('./maintenance.html');
+    redirect('/CvSUOrganizationNetwork/maintenance.html');
     exit;
 }
