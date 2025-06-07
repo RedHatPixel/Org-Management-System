@@ -13,9 +13,13 @@
                 <i class="material-icons">groups</i>
                 <span>Orgs</span>
             </a>
-            <a href="./event.php" class="nav-link">
+            <a href="./calendar.php" class="nav-link">
                 <i class="material-icons">calendar_month</i>
-                <span>Event</span>
+                <span>Calendar</span>
+            </a>
+            <a href="./event.php" class="nav-link">
+                <i class="material-icons">inbox</i>
+                <span>Inbox</span>
             </a>
             <a href="./chat.php" class="nav-link">
                 <i class="material-icons">chat</i>
@@ -29,10 +33,6 @@
                 <i class="material-icons">logout</i>
                 <span>Log out</span>
             </a>
-        </div>
-
-        <div class="sidebar-adds">
-
         </div>
 
         <script src="../../assets/js/sidebar.js"></script>

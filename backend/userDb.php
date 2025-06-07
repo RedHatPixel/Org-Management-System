@@ -60,7 +60,7 @@ function createAccount(
         }
     } catch (mysqli_sql_exception | Exception $e) {
         if (str_contains($e->getMessage(), 'chk_student_id_format')) {
-            return result("Invalid student ID format. It should be YYYY-NNN-NNN", 'error');
+            return result("Invalid student ID format.", 'error');
         }
 
         if (str_contains($e->getMessage(), 'chk_email_format')) {
@@ -109,6 +109,8 @@ function loginAccount($cvsu_email, $password)
         return result($e->getMessage(), 'error');
     }
 }
+
+function logoutAccount() {}
 
 function getUserAccount($user_id)
 {

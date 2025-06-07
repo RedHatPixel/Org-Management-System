@@ -38,6 +38,69 @@ autoLogin($_SERVER['PHP_SELF'], "../../index.php");
         </div>
 
         <main class="dashboard-content">
+            <div class="home-content" id="db-home">
+                <div class="left-content">
+                    <form action="#" id="search-form">
+                        <div class="input-field">
+                            <label for="search"><i class="material-icons left-icon">search</i></label>
+                            <input type="text" id="search" name="search" placeholder="Search" required>
+                        </div>
+                        <button type="submit" class="side-btn">Search</button>
+                    </form>
+
+                    <details class="dropdown">
+                        <summary>
+                            <i class="material-icons">groups</i>
+                            <span>Organizations</span>
+                        </summary>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">LITL</a></li>
+                            <li><a href="#">MAGE</a></li>
+                        </ul>
+                    </details>
+                    <details class="dropdown">
+                        <summary>
+                            <i class="material-icons">event</i>
+                            <span>Events</span>
+                        </summary>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Ctrl + Alt game</a></li>
+                            <li><a href="#">IWAS PAWIS</a></li>
+                            <li><a href="#">go go go cvsuhenyo</a></li>
+                            <li><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="main-content">
+                    <h2>For you</h2>
+                    <div class="post-container">
+                        <div class="post">
+                            <div class="post-header">
+                                <img src="../../assets//images/Cavite_State_University_(CvSU).png" alt="org profile" class="org-profile">
+                                <span class="org-title">SAMPLE</span>
+                            </div>
+                            <div class="post-desc">
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, illum. Reprehenderit esse totam, nemo ea doloribus natus ducimus quasi? Odio reprehenderit voluptate magni veniam ducimus perspiciatis modi, illum quia. Expedita.</p>
+                                <span>read more.</span>
+                            </div>
+                            <div class="post-content">
+                                <img src="../../assets//images/hero.jpg" alt="post" class="post">
+                            </div>
+                            <div class="post-user-selection">
+                                <button class="post-like">Like</button>
+                                <button class="post-comment">Comment</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="right-content">
+                    <h3>Recommended</h3>
+
+                </div>d
+            </div>
         </main>
     </div>
 

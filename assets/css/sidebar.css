@@ -75,7 +75,24 @@
 		display: none;
 	}
 
+	.sidebar,
 	.sidebar.cropped {
 		width: 0;
+	}
+
+	.sidebar-content {
+		width: 200px;
+		height: 90vh;
+		overflow: show;
+		position: fixed;
+		left: 0;
+		z-index: 9999;
+		background-color: #fff;
+		border-right: 2px solid var(--gray-color);
+		transition: left 0.2s ease-in-out;
+	}
+
+	.sidebar.cropped .sidebar-content {
+		left: -200px;
 	}
 }

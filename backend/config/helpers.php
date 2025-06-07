@@ -41,12 +41,6 @@ function alertMessage()
 
 /**
  * Create a structured result array for feedback
- * 
- * @param string $message       The message to return
- * @param string|null $status   Optional status type ('success', 'error', etc.)
- * @param mixed $data           The data the user want to send
- * 
- * @return array
  */
 function result($message = '', $status = null, $data = null)
 {

@@ -16,7 +16,7 @@ if (isset($_SESSION['user'])) {
         <div class="sidebar-toggler">
             <i class="material-icons toggle-btn">view_headline</i>
         </div>
-        <a href="../../index.php">
+        <a href="./home.php">
             <img src="" alt="LOGO">
         </a>
     </div>
